@@ -1,8 +1,10 @@
+import TrafficLight from './TrafficLight'
 
 function App() {
+
   return (
     <div>
-      Traffic Light
+      <TrafficLight />
     </div>
   );
 }
