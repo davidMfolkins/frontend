@@ -14,7 +14,8 @@ const useStyles = makeStyles(() => ({
     marginLeft: "-100px",
     border: "1px solid black",
     width: "180px",
-    height: "400px"
+    height: "350px",
+    borderRadius: "10px"
   },
   text: {
     color: "green",
@@ -25,6 +26,21 @@ const useStyles = makeStyles(() => ({
     marginTop: "-50px",
     marginLeft: "-100px",
   },
+  lights: {
+    position: "fixed",
+    top: "31%",
+    left: "53.5%",
+    marginTop: "-50px",
+    marginLeft: "-100px",
+  },
+  light: {
+    border: "1px solid lightgrey",
+    borderRadius: "50px",
+    width: "50px",
+    height: "50px",
+    marginBottom: "40px",
+    backgroundColor: "lightgrey"
+  }
 }));
 
 function TrafficLight() {
@@ -33,7 +49,11 @@ function TrafficLight() {
   return (
     <div className={classes.container}>
       <div className={classes.trafficlight}>
-        Traffic Light
+      </div>
+      <div className={classes.lights}>
+        <div className={classes.light}></div>
+        <div className={classes.light}></div>
+        <div className={classes.light}></div>
       </div>
       <div className={classes.text}>
         The light is green.
