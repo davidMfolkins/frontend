@@ -1,10 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
-  container: {
+  greenBg: {
     backgroundColor: "#acffa1",
-    height: "1000px"
+    height: "1000px",
+    color: "green"
+  },
+  yellowBg: {
+    backgroundColor: "#fbff82",
+    height: "1000px",
+    color: "#b6c700"
+  },
+  redBg: {
+    backgroundColor: "#ff5757",
+    height: "1000px",
+    color: "#a30000"
   },
   trafficlight: {
     backgroundColor: "white",
@@ -19,11 +30,10 @@ const useStyles = makeStyles(() => ({
     borderRadius: "10px"
   },
   text: {
-    color: "green",
     fontSize: "50px",
     position: "fixed",
     top: "75%",
-    left: "45%",
+    left: "46%",
     marginTop: "-50px",
     marginLeft: "-100px",
   },
@@ -56,7 +66,7 @@ const useStyles = makeStyles(() => ({
     width: "50px",
     height: "50px",
     marginBottom: "40px",
-    backgroundColor: "lightgrey"
+    backgroundColor: "yellow"
   },
   redLight: {
     border: "1px solid lightgrey",
@@ -64,25 +74,47 @@ const useStyles = makeStyles(() => ({
     width: "50px",
     height: "50px",
     marginBottom: "40px",
-    backgroundColor: "lightgrey"
+    backgroundColor: "red"
   },
 }));
 
 function TrafficLight() {
   const classes = useStyles();
-  const [light, setLight] = useState(classes.light)
+  const [lightOne, setLightOne] = useState(classes.greenLight)
+  const [lightTwo, setLightTwo] = useState(classes.light)
+  const [lightThree, setLightThree] = useState(classes.light)
+
+  const [bgColor, setBgColor] = useState(classes.greenBg)
+  const [color, setColor] = useState("green")
+
+  useEffect(() => {
+      setTimeout(function () {
+        setLightTwo(classes.yellowLight)
+        setBgColor(classes.yellowBg)
+        setColor("yellow")
+        setLightOne(classes.light)
+        setLightThree(classes.light)
+        setTimeout(function () {
+          setLightThree(classes.redLight)
+          setBgColor(classes.redBg)
+          setColor("red")
+          setLightTwo(classes.light)
+          setLightOne(classes.light)
+        }, 3000);
+      }, 3000);
+  }, [])
 
   return (
-    <div className={classes.container}>
+    <div className={bgColor}>
       <div className={classes.trafficlight}>
       </div>
       <div className={classes.lights}>
-        <div className={classes.light}></div>
-        <div className={classes.light}></div>
-        <div className={classes.light}></div>
+        <div className={lightThree}></div>
+        <div className={lightTwo}></div>
+        <div className={lightOne}></div>
       </div>
       <div className={classes.text}>
-        The light is green.
+        The light is {color}.
       </div>
     </div>
   );
