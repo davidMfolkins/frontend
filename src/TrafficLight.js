@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
@@ -40,11 +41,36 @@ const useStyles = makeStyles(() => ({
     height: "50px",
     marginBottom: "40px",
     backgroundColor: "lightgrey"
-  }
+  },
+  greenLight: {
+    border: "1px solid lightgrey",
+    borderRadius: "50px",
+    width: "50px",
+    height: "50px",
+    marginBottom: "40px",
+    backgroundColor: "green",
+  },
+  yellowLight: {
+    border: "1px solid lightgrey",
+    borderRadius: "50px",
+    width: "50px",
+    height: "50px",
+    marginBottom: "40px",
+    backgroundColor: "lightgrey"
+  },
+  redLight: {
+    border: "1px solid lightgrey",
+    borderRadius: "50px",
+    width: "50px",
+    height: "50px",
+    marginBottom: "40px",
+    backgroundColor: "lightgrey"
+  },
 }));
 
 function TrafficLight() {
   const classes = useStyles();
+  const [light, setLight] = useState(classes.light)
 
   return (
     <div className={classes.container}>
