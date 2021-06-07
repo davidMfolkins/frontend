@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
@@ -80,38 +80,48 @@ const useStyles = makeStyles(() => ({
 
 function TrafficLight() {
   const classes = useStyles();
-  const [lightOne, setLightOne] = useState(classes.greenLight)
-  const [lightTwo, setLightTwo] = useState(classes.light)
-  const [lightThree, setLightThree] = useState(classes.light)
+  const [green, setGreen] = useState(classes.greenLight)
+  const [yellow, setYellow] = useState(classes.light)
+  const [red, setRed] = useState(classes.light)
 
   const [bgColor, setBgColor] = useState(classes.greenBg)
   const [color, setColor] = useState("green")
 
-  useEffect(() => {
-      setTimeout(function () {
-        setLightTwo(classes.yellowLight)
-        setBgColor(classes.yellowBg)
-        setColor("yellow")
-        setLightOne(classes.light)
-        setLightThree(classes.light)
-        setTimeout(function () {
-          setLightThree(classes.redLight)
-          setBgColor(classes.redBg)
-          setColor("red")
-          setLightTwo(classes.light)
-          setLightOne(classes.light)
-        }, 3000);
-      }, 3000);
-  }, [])
+  setInterval(function () {
+    if (green === classes.greenLight) {
+      setYellow(classes.yellowLight)
+      setBgColor(classes.yellowBg)
+      setColor("yellow")
+      setGreen(classes.light)
+      setRed(classes.light)
+    }
+
+    if (yellow === classes.yellowLight) {
+      setRed(classes.redLight)
+      setBgColor(classes.redBg)
+      setColor("red")
+      setYellow(classes.light)
+      setGreen(classes.light)
+    }
+
+    if (red === classes.redLight) {
+      setGreen(classes.greenLight)
+      setBgColor(classes.greenBg)
+      setColor("green")
+      setYellow(classes.light)
+      setRed(classes.light)
+    }
+  }, 5000);
+
 
   return (
     <div className={bgColor}>
       <div className={classes.trafficlight}>
       </div>
       <div className={classes.lights}>
-        <div className={lightThree}></div>
-        <div className={lightTwo}></div>
-        <div className={lightOne}></div>
+        <div className={red}></div>
+        <div className={yellow}></div>
+        <div className={green}></div>
       </div>
       <div className={classes.text}>
         The light is {color}.
