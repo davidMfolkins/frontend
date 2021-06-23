@@ -5,7 +5,10 @@ const useStyles = makeStyles(() => ({
   greenBg: {
     backgroundColor: "#acffa1",
     height: "1000px",
-    color: "green"
+    color: "green",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column"
   },
   yellowBg: {
     backgroundColor: "#fbff82",
@@ -18,12 +21,12 @@ const useStyles = makeStyles(() => ({
     color: "#a30000"
   },
   trafficlight: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "white",
-    position: "fixed",
+    position: "absolute",
     top: "25%",
-    left: "50%",
-    marginTop: "-50px",
-    marginLeft: "-100px",
     border: "1px solid black",
     width: "180px",
     height: "350px",
@@ -31,18 +34,11 @@ const useStyles = makeStyles(() => ({
   },
   text: {
     fontSize: "50px",
-    position: "fixed",
-    top: "75%",
-    left: "46%",
-    marginTop: "-50px",
-    marginLeft: "-100px",
+    position: "absolute",
+    top: "90%",
   },
   lights: {
-    position: "fixed",
-    top: "31%",
-    left: "53.5%",
-    marginTop: "-50px",
-    marginLeft: "-100px",
+    marginTop: "20%"
   },
   light: {
     border: "1px solid lightgrey",
@@ -87,41 +83,41 @@ function TrafficLight() {
   const [bgColor, setBgColor] = useState(classes.greenBg)
   const [color, setColor] = useState("green")
 
-  setInterval(function () {
-    if (green === classes.greenLight) {
-      setYellow(classes.yellowLight)
-      setBgColor(classes.yellowBg)
-      setColor("yellow")
-      setGreen(classes.light)
-      setRed(classes.light)
-    }
+  // setInterval(function () {
+  //   if (green === classes.greenLight) {
+  //     setYellow(classes.yellowLight)
+  //     setBgColor(classes.yellowBg)
+  //     setColor("yellow")
+  //     setGreen(classes.light)
+  //     setRed(classes.light)
+  //   }
 
-    if (yellow === classes.yellowLight) {
-      setRed(classes.redLight)
-      setBgColor(classes.redBg)
-      setColor("red")
-      setYellow(classes.light)
-      setGreen(classes.light)
-    }
+  //   if (yellow === classes.yellowLight) {
+  //     setRed(classes.redLight)
+  //     setBgColor(classes.redBg)
+  //     setColor("red")
+  //     setYellow(classes.light)
+  //     setGreen(classes.light)
+  //   }
 
-    if (red === classes.redLight) {
-      setGreen(classes.greenLight)
-      setBgColor(classes.greenBg)
-      setColor("green")
-      setYellow(classes.light)
-      setRed(classes.light)
-    }
-  }, 5000);
+  //   if (red === classes.redLight) {
+  //     setGreen(classes.greenLight)
+  //     setBgColor(classes.greenBg)
+  //     setColor("green")
+  //     setYellow(classes.light)
+  //     setRed(classes.light)
+  //   }
+  // }, 5000);
 
 
   return (
     <div className={bgColor}>
       <div className={classes.trafficlight}>
-      </div>
-      <div className={classes.lights}>
-        <div className={red}></div>
-        <div className={yellow}></div>
-        <div className={green}></div>
+        <div className={classes.lights}>
+          <div className={red}></div>
+          <div className={yellow}></div>
+          <div className={green}></div>
+        </div>
       </div>
       <div className={classes.text}>
         The light is {color}.
