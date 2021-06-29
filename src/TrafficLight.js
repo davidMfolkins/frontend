@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
@@ -13,12 +13,18 @@ const useStyles = makeStyles(() => ({
   yellowBg: {
     backgroundColor: "#fbff82",
     height: "1000px",
-    color: "#b6c700"
+    color: "#b6c700",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column"
   },
   redBg: {
     backgroundColor: "#ff5757",
     height: "1000px",
-    color: "#a30000"
+    color: "#a30000",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column"
   },
   trafficlight: {
     display: "flex",
@@ -35,7 +41,7 @@ const useStyles = makeStyles(() => ({
   text: {
     fontSize: "50px",
     position: "absolute",
-    top: "90%",
+    top: "75%",
   },
   lights: {
     marginTop: "20%"
@@ -83,32 +89,41 @@ function TrafficLight() {
   const [bgColor, setBgColor] = useState(classes.greenBg)
   const [color, setColor] = useState("green")
 
-  // setInterval(function () {
-  //   if (green === classes.greenLight) {
-  //     setYellow(classes.yellowLight)
-  //     setBgColor(classes.yellowBg)
-  //     setColor("yellow")
-  //     setGreen(classes.light)
-  //     setRed(classes.light)
-  //   }
+  useEffect(() => {
+    const intervalHandle = setInterval(function () {
+      if (green === classes.greenLight) {
+        setYellow(classes.yellowLight)
+        setBgColor(classes.yellowBg)
+        setColor("yellow")
+        setGreen(classes.light)
+        setRed(classes.light)
+        return
+      }
+  
+      if (yellow === classes.yellowLight) {
+        setRed(classes.redLight)
+        setBgColor(classes.redBg)
+        setColor("red")
+        setYellow(classes.light)
+        setGreen(classes.light)
+        return
+      }
+  
+      if (red === classes.redLight) {
+        setGreen(classes.greenLight)
+        setBgColor(classes.greenBg)
+        setColor("green")
+        setYellow(classes.light)
+        setRed(classes.light)
+  
+      }
+    }, 3000);
+    return function cleanup() {
+      clearInterval(intervalHandle)
+    }
+  }, [red, green, yellow, classes.greenBg, classes.greenLight, classes.light, classes.redBg, classes.redLight, classes.yellowBg, classes.yellowLight]);
 
-  //   if (yellow === classes.yellowLight) {
-  //     setRed(classes.redLight)
-  //     setBgColor(classes.redBg)
-  //     setColor("red")
-  //     setYellow(classes.light)
-  //     setGreen(classes.light)
-  //   }
-
-  //   if (red === classes.redLight) {
-  //     setGreen(classes.greenLight)
-  //     setBgColor(classes.greenBg)
-  //     setColor("green")
-  //     setYellow(classes.light)
-  //     setRed(classes.light)
-  //   }
-  // }, 5000);
-
+  
 
   return (
     <div className={bgColor}>
