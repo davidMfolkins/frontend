@@ -39,7 +39,7 @@ const useStyles = makeStyles(() => ({
     borderRadius: "10px"
   },
   text: {
-    fontSize: "50px",
+    fontSize: "60px",
     position: "absolute",
     top: "75%",
   },
@@ -92,14 +92,16 @@ function TrafficLight() {
   useEffect(() => {
     const intervalHandle = setInterval(function () {
       if (green === classes.greenLight) {
-        setYellow(classes.yellowLight)
-        setBgColor(classes.yellowBg)
-        setColor("yellow")
-        setGreen(classes.light)
-        setRed(classes.light)
-        return
+        setTimeout(function () {
+          setYellow(classes.yellowLight)
+          setBgColor(classes.yellowBg)
+          setColor("yellow")
+          setGreen(classes.light)
+          setRed(classes.light)
+          return
+        }, 4000);
       }
-  
+
       if (yellow === classes.yellowLight) {
         setRed(classes.redLight)
         setBgColor(classes.redBg)
@@ -108,22 +110,23 @@ function TrafficLight() {
         setGreen(classes.light)
         return
       }
-  
+
       if (red === classes.redLight) {
-        setGreen(classes.greenLight)
-        setBgColor(classes.greenBg)
-        setColor("green")
-        setYellow(classes.light)
-        setRed(classes.light)
-  
+        setTimeout(function () {
+          setGreen(classes.greenLight)
+          setBgColor(classes.greenBg)
+          setColor("green")
+          setYellow(classes.light)
+          setRed(classes.light)
+        }, 4000);
       }
-    }, 3000);
+    }, 4000);
     return function cleanup() {
       clearInterval(intervalHandle)
     }
   }, [red, green, yellow, classes.greenBg, classes.greenLight, classes.light, classes.redBg, classes.redLight, classes.yellowBg, classes.yellowLight]);
 
-  
+
 
   return (
     <div className={bgColor}>
