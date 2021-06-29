@@ -82,49 +82,49 @@ const useStyles = makeStyles(() => ({
 
 function TrafficLight() {
   const classes = useStyles();
-  const [green, setGreen] = useState(classes.greenLight)
-  const [yellow, setYellow] = useState(classes.light)
-  const [red, setRed] = useState(classes.light)
+  const [greenLight, setGreenLight] = useState(classes.greenLight)
+  const [yellowLight, setYellowLight] = useState(classes.light)
+  const [redLight, setRedLight] = useState(classes.light)
 
   const [bgColor, setBgColor] = useState(classes.greenBg)
   const [color, setColor] = useState("green")
 
   useEffect(() => {
     const intervalHandle = setInterval(function () {
-      if (green === classes.greenLight) {
+      if (greenLight === classes.greenLight) {
         setTimeout(function () {
-          setYellow(classes.yellowLight)
+          setYellowLight(classes.yellowLight)
           setBgColor(classes.yellowBg)
           setColor("yellow")
-          setGreen(classes.light)
-          setRed(classes.light)
+          setGreenLight(classes.light)
+          setRedLight(classes.light)
           return
         }, 4000);
       }
 
-      if (yellow === classes.yellowLight) {
-        setRed(classes.redLight)
+      if (yellowLight === classes.yellowLight) {
+        setRedLight(classes.redLight)
         setBgColor(classes.redBg)
         setColor("red")
-        setYellow(classes.light)
-        setGreen(classes.light)
+        setYellowLight(classes.light)
+        setGreenLight(classes.light)
         return
       }
 
-      if (red === classes.redLight) {
+      if (redLight === classes.redLight) {
         setTimeout(function () {
-          setGreen(classes.greenLight)
+          setGreenLight(classes.greenLight)
           setBgColor(classes.greenBg)
           setColor("green")
-          setYellow(classes.light)
-          setRed(classes.light)
+          setYellowLight(classes.light)
+          setRedLight(classes.light)
         }, 4000);
       }
     }, 4000);
     return function cleanup() {
       clearInterval(intervalHandle)
     }
-  }, [red, green, yellow, classes.greenBg, classes.greenLight, classes.light, classes.redBg, classes.redLight, classes.yellowBg, classes.yellowLight]);
+  }, [redLight, greenLight, yellowLight, classes.greenBg, classes.greenLight, classes.light, classes.redBg, classes.redLight, classes.yellowBg, classes.yellowLight]);
 
 
 
@@ -132,9 +132,9 @@ function TrafficLight() {
     <div className={bgColor}>
       <div className={classes.trafficlight}>
         <div className={classes.lights}>
-          <div className={red}></div>
-          <div className={yellow}></div>
-          <div className={green}></div>
+          <div className={redLight}></div>
+          <div className={yellowLight}></div>
+          <div className={greenLight}></div>
         </div>
       </div>
       <div className={classes.text}>
