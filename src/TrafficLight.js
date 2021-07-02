@@ -20,7 +20,7 @@ function TrafficLight() {
           setGreenLight(classes.lightOff)
           setRedLight(classes.lightOff)
           return
-        }, 4000);
+        }, 1000);
       }
 
       if (yellowLight === classes.yellowLight) {
@@ -39,9 +39,9 @@ function TrafficLight() {
           setColor("green")
           setYellowLight(classes.lightOff)
           setRedLight(classes.lightOff)
-        }, 4000);
+        }, 1000);
       }
-    }, 4000);
+    }, 1000);
     return function cleanup() {
       clearInterval(intervalHandle)
     }

@@ -2,23 +2,23 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   greenBg: {
-    backgroundColor: "#acffa1",
+    backgroundColor: "#abffab",
     height: "1000px",
-    color: "green",
+    color: "#005c00",
     display: "flex",
     alignItems: "center",
     flexDirection: "column"
   },
   yellowBg: {
-    backgroundColor: "#fbff82",
+    backgroundColor: "#fffdab",
     height: "1000px",
-    color: "#b6c700",
+    color: "#c7c200",
     display: "flex",
     alignItems: "center",
     flexDirection: "column"
   },
   redBg: {
-    backgroundColor: "#ff5757",
+    backgroundColor: "#ff8080",
     height: "1000px",
     color: "#a30000",
     display: "flex",
@@ -54,22 +54,22 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "lightgrey"
   },
   greenLight: {
-    border: "1px solid green",
+    border: "1px solid #00c900",
     borderRadius: "50px",
     width: "50px",
     height: "50px",
     marginBottom: "40px",
-    backgroundColor: "green",
-    boxShadow: "0 0 30px green"
+    backgroundColor: "#00c900",
+    boxShadow: "0 0 30px #00c900"
   },
   yellowLight: {
-    border: "1px solid yellow",
+    border: "1px solid #f0ea00",
     borderRadius: "50px",
     width: "50px",
     height: "50px",
     marginBottom: "40px",
-    backgroundColor: "yellow",
-    boxShadow: "0 0 30px yellow"
+    backgroundColor: "#f0ea00",
+    boxShadow: "0 0 30px #f0ea00"
   },
   redLight: {
     border: "1px solid red",
