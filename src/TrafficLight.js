@@ -9,6 +9,7 @@ function TrafficLight() {
   const [bgColor, setBgColor] = useState(classes.greenBg)
   const [color, setColor] = useState("green")
   const [trafficLight, setTrafficLight] = useState(classes.greenTrafficLight)
+
   useEffect(() => {
     const intervalHandle = setInterval(function () {
       if (greenLight === classes.greenLight) {
@@ -20,7 +21,7 @@ function TrafficLight() {
           setGreenLight(classes.lightOff)
           setRedLight(classes.lightOff)
           return
-        }, 1000);
+        }, 4000);
       }
 
       if (yellowLight === classes.yellowLight) {
@@ -41,13 +42,27 @@ function TrafficLight() {
           setTrafficLight(classes.greenTrafficLight)
           setYellowLight(classes.lightOff)
           setRedLight(classes.lightOff)
-        }, 1000);
+        }, 4000);
       }
-    }, 1000);
+    }, 4000);
     return function cleanup() {
       clearInterval(intervalHandle)
     }
-  }, [greenLight, yellowLight, redLight, classes.lightOff, classes.greenBg, classes.yellowBg, classes.redBg, classes.greenLight, classes.redLight, classes.yellowLight]);
+  }, [
+    greenLight,
+    yellowLight,
+    redLight,
+    classes.lightOff,
+    classes.greenBg,
+    classes.yellowBg,
+    classes.redBg,
+    classes.greenLight,
+    classes.redLight,
+    classes.yellowLight,
+    classes.greenTrafficLight,
+    classes.redTrafficLight,
+    classes.yellowTrafficLight
+  ]);
 
 
 
