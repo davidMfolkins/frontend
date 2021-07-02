@@ -46,7 +46,7 @@ const useStyles = makeStyles(() => ({
   lights: {
     marginTop: "20%"
   },
-  light: {
+  lightOff: {
     border: "1px solid lightgrey",
     borderRadius: "50px",
     width: "50px",
@@ -55,36 +55,39 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "lightgrey"
   },
   greenLight: {
-    border: "1px solid lightgrey",
+    border: "1px solid green",
     borderRadius: "50px",
     width: "50px",
     height: "50px",
     marginBottom: "40px",
     backgroundColor: "green",
+    boxShadow: "0 0 30px green"
   },
   yellowLight: {
-    border: "1px solid lightgrey",
+    border: "1px solid yellow",
     borderRadius: "50px",
     width: "50px",
     height: "50px",
     marginBottom: "40px",
-    backgroundColor: "yellow"
+    backgroundColor: "yellow",
+    boxShadow: "0 0 30px yellow"
   },
   redLight: {
-    border: "1px solid lightgrey",
+    border: "1px solid red",
     borderRadius: "50px",
     width: "50px",
     height: "50px",
     marginBottom: "40px",
-    backgroundColor: "red"
+    backgroundColor: "red",
+    boxShadow: "0 0 30px red"
   },
 }));
 
 function TrafficLight() {
   const classes = useStyles();
   const [greenLight, setGreenLight] = useState(classes.greenLight)
-  const [yellowLight, setYellowLight] = useState(classes.light)
-  const [redLight, setRedLight] = useState(classes.light)
+  const [yellowLight, setYellowLight] = useState(classes.lightOff)
+  const [redLight, setRedLight] = useState(classes.lightOff)
 
   const [bgColor, setBgColor] = useState(classes.greenBg)
   const [color, setColor] = useState("green")
@@ -96,8 +99,8 @@ function TrafficLight() {
           setYellowLight(classes.yellowLight)
           setBgColor(classes.yellowBg)
           setColor("yellow")
-          setGreenLight(classes.light)
-          setRedLight(classes.light)
+          setGreenLight(classes.lightOff)
+          setRedLight(classes.lightOff)
           return
         }, 4000);
       }
@@ -106,8 +109,8 @@ function TrafficLight() {
         setRedLight(classes.redLight)
         setBgColor(classes.redBg)
         setColor("red")
-        setYellowLight(classes.light)
-        setGreenLight(classes.light)
+        setYellowLight(classes.lightOff)
+        setGreenLight(classes.lightOff)
         return
       }
 
@@ -116,15 +119,15 @@ function TrafficLight() {
           setGreenLight(classes.greenLight)
           setBgColor(classes.greenBg)
           setColor("green")
-          setYellowLight(classes.light)
-          setRedLight(classes.light)
+          setYellowLight(classes.lightOff)
+          setRedLight(classes.lightOff)
         }, 4000);
       }
     }, 4000);
     return function cleanup() {
       clearInterval(intervalHandle)
     }
-  }, [redLight, greenLight, yellowLight, classes.greenBg, classes.greenLight, classes.light, classes.redBg, classes.redLight, classes.yellowBg, classes.yellowLight]);
+  }, [greenLight, yellowLight, redLight, classes.lightOff, classes.greenBg, classes.yellowBg, classes.redBg, classes.greenLight, classes.redLight, classes.yellowLight]);
 
 
 
