@@ -6,10 +6,9 @@ function TrafficLight() {
   const [greenLight, setGreenLight] = useState(classes.greenLight)
   const [yellowLight, setYellowLight] = useState(classes.lightOff)
   const [redLight, setRedLight] = useState(classes.lightOff)
-
   const [bgColor, setBgColor] = useState(classes.greenBg)
   const [color, setColor] = useState("green")
-
+  const [trafficLight, setTrafficLight] = useState(classes.greenTrafficLight)
   useEffect(() => {
     const intervalHandle = setInterval(function () {
       if (greenLight === classes.greenLight) {
@@ -17,6 +16,7 @@ function TrafficLight() {
           setYellowLight(classes.yellowLight)
           setBgColor(classes.yellowBg)
           setColor("yellow")
+          setTrafficLight(classes.yellowTrafficLight)
           setGreenLight(classes.lightOff)
           setRedLight(classes.lightOff)
           return
@@ -27,6 +27,7 @@ function TrafficLight() {
         setRedLight(classes.redLight)
         setBgColor(classes.redBg)
         setColor("red")
+        setTrafficLight(classes.redTrafficLight)
         setYellowLight(classes.lightOff)
         setGreenLight(classes.lightOff)
         return
@@ -37,6 +38,7 @@ function TrafficLight() {
           setGreenLight(classes.greenLight)
           setBgColor(classes.greenBg)
           setColor("green")
+          setTrafficLight(classes.greenTrafficLight)
           setYellowLight(classes.lightOff)
           setRedLight(classes.lightOff)
         }, 1000);
@@ -51,7 +53,7 @@ function TrafficLight() {
 
   return (
     <div className={bgColor}>
-      <div className={classes.trafficlight}>
+      <div className={trafficLight}>
         <div className={classes.lights}>
           <div className={redLight}></div>
           <div className={yellowLight}></div>

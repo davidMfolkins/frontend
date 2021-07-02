@@ -25,14 +25,38 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
     flexDirection: "column"
   },
-  trafficlight: {
+  greenTrafficLight: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
     position: "absolute",
     top: "25%",
-    border: "1px solid black",
+    border: "2px solid #005c00",
+    width: "180px",
+    height: "350px",
+    borderRadius: "10px"
+  },
+  yellowTrafficLight: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
+    position: "absolute",
+    top: "25%",
+    border: "2px solid #c7c200",
+    width: "180px",
+    height: "350px",
+    borderRadius: "10px"
+  },
+  redTrafficLight: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
+    position: "absolute",
+    top: "25%",
+    border: "2px solid #a30000",
     width: "180px",
     height: "350px",
     borderRadius: "10px"
