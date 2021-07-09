@@ -1,29 +1,44 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
+  container: {
+    backgroundColor: "red"
+  },
   greenBg: {
     backgroundColor: "#abffab",
-    height: "1000px",
+    height: "650px",
+    width: "800px",
     color: "#005c00",
+    margin: "20px auto 0",
     display: "flex",
     alignItems: "center",
-    flexDirection: "column"
+    flexDirection: "column",
+    border: "2px solid #35e000",
+    borderRadius: "10px"
   },
   yellowBg: {
     backgroundColor: "#fffdab",
-    height: "1000px",
+    height: "650px",
+    width: "800px",
+    margin: "20px auto 0",
     color: "#c7c200",
     display: "flex",
     alignItems: "center",
-    flexDirection: "column"
+    flexDirection: "column",
+    border: "2px solid #edea00",
+    borderRadius: "10px"
   },
   redBg: {
     backgroundColor: "#ff8080",
-    height: "1000px",
+    height: "650px",
+    width: "800px",
+    margin: "20px auto 0",
     color: "#a30000",
     display: "flex",
     alignItems: "center",
-    flexDirection: "column"
+    flexDirection: "column",
+    border: "2px solid #fc2626",
+    borderRadius: "10px"
   },
   greenTrafficLight: {
     display: "flex",
@@ -31,7 +46,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
     backgroundColor: "white",
     position: "absolute",
-    top: "25%",
+    top: "120px",
     border: "2px solid #005c00",
     width: "180px",
     height: "350px",
@@ -43,7 +58,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
     backgroundColor: "white",
     position: "absolute",
-    top: "25%",
+    top: "120px",
     border: "2px solid #c7c200",
     width: "180px",
     height: "350px",
@@ -55,7 +70,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "center",
     backgroundColor: "white",
     position: "absolute",
-    top: "25%",
+    top: "120px",
     border: "2px solid #a30000",
     width: "180px",
     height: "350px",
@@ -64,7 +79,7 @@ const useStyles = makeStyles(() => ({
   text: {
     fontSize: "60px",
     position: "absolute",
-    top: "75%",
+    top: "550px",
   },
   lights: {
     marginTop: "20%"
