@@ -64,8 +64,6 @@ function TrafficLight() {
     classes.yellowTrafficLight
   ]);
 
-
-
   return (
     <div className={bgColor}>
       <div className={trafficLight}>
